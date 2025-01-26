@@ -4,7 +4,7 @@
 
 [![Paper](http://img.shields.io/badge/arXiv-2405.14108-B31B1B.svg)](https://arxiv.org/abs/2405.14108)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11477766.svg)](https://doi.org/10.5281/zenodo.11477766)
-[![PyPI version](https://badge.fury.io/py/posebench.svg)](https://badge.fury.io/py/posebench)
+[![PyPI version](https://badge.fury.io/py/multicom_ligand.svg)](https://badge.fury.io/py/multicom_ligand)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Docs](https://assets.readthedocs.org/static/projects/badges/passing-flat.svg)](https://bioinfomachinelearning.github.io/MULTICOM_ligand/)
 <a href="https://hydra.cc/"><img alt="Config: Hydra" src="https://img.shields.io/badge/config-hydra-89b8cd"></a>
