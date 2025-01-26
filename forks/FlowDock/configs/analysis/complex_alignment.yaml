@@ -1,0 +1,8 @@
+method: flowdock # the method for which to align predictions - NOTE: must be one of (`diffdock`, `flowdock`, `neuralplexer`)
+dataset: pdbbind # the dataset to use - NOTE: must be one of (`pdbbind`, `moad`)
+input_data_dir: ${oc.env:PROJECT_ROOT}/data/${dataset} # the input protein-ligand complex directory to recursively parse
+output_dir: ${resolve_method_output_dir:${method},${dataset},${repeat_index}} # the output directory to which to save the relaxed predictions
+rank_to_align: 1 # the pose rank to align
+aligned_filename_postfix: "_aligned" # the postfix to append to each aligned complex filename
+force_process: false # whether to force processing of all complexes, even if they have already been processed
+repeat_index: 1 # the repeat index which was used for inference

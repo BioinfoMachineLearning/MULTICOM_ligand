@@ -1,0 +1,10 @@
+dataset: pdbbind # the dataset to use - NOTE: must be one of (`pdbbind`, `moad`)
+input_data_dir: ${oc.env:PROJECT_ROOT}/data/${dataset} # the input protein-ligand complex directory to recursively parse
+input_receptor_structure_dir: ${oc.env:PROJECT_ROOT}/data/${dataset}/${dataset}_holo_aligned_esmfold_structures # if not `null`, the input template protein structure directory to parse
+output_csv_path: ${oc.env:PROJECT_ROOT}/forks/NeuralPLexer/inference/neuralplexer_${dataset}_inputs.csv # the output CSV filepath to which to write the parsed input data
+pdbbind_test_ids_filepath: ${oc.env:PROJECT_ROOT}/data/splits/timesplit_test # the path to the PDBbind test set IDs file
+moad_test_ids_filepath: ${oc.env:PROJECT_ROOT}/data/splits/dockgen_test # the path to the MOAD test set IDs file
+input_receptor: null # the input protein sequence
+input_ligand: null # the input ligand SMILES
+input_template: null # the input template protein structure to optionally use
+input_id: null # the input ID to use for inference
