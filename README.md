@@ -2,7 +2,7 @@
 
 # MULTICOM_ligand
 
-[![Paper](http://img.shields.io/badge/arXiv-2405.14108-B31B1B.svg)]([https://arxiv.org/abs/2405.14108](https://www.authorea.com/users/885651/articles/1263768-protein-ligand-structure-and-affinity-prediction-in-casp16-using-a-geometric-deep-learning-ensemble-and-flow-matching?commit=81affaec47d6d23f58d02a1e7bbbdfcb09935ef7))
+[![Paper](http://img.shields.io/badge/arXiv-2405.14108-B31B1B.svg)](https://www.authorea.com/users/885651/articles/1263768-protein-ligand-structure-and-affinity-prediction-in-casp16-using-a-geometric-deep-learning-ensemble-and-flow-matching?commit=81affaec47d6d23f58d02a1e7bbbdfcb09935ef7)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11477766.svg)](https://doi.org/10.5281/zenodo.11477766)
 [![PyPI version](https://badge.fury.io/py/multicom_ligand.svg)](https://badge.fury.io/py/multicom_ligand)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
