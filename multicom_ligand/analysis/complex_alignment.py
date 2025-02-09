@@ -41,16 +41,21 @@ def save_aligned_complex(
     aligned_filename_postfix: str = "_aligned",
     atom_df_name: str = "ATOM",
 ):
-    """Align the predicted protein-ligand structures to the reference protein-ligand structures and
-    save the aligned results.
+    """Align the predicted protein-ligand structures to the reference protein-
+    ligand structures and save the aligned results.
 
-    :param predicted_protein_pdb: Path to the predicted protein structure in PDB format
-    :param predicted_ligand_sdf: Optional path to the predicted ligand structure in SDF format
-    :param reference_protein_pdb: Path to the reference protein structure in PDB format
-    :param reference_ligand_sdf: Path to the reference ligand structure in SDF format
+    :param predicted_protein_pdb: Path to the predicted protein
+        structure in PDB format
+    :param predicted_ligand_sdf: Optional path to the predicted ligand
+        structure in SDF format
+    :param reference_protein_pdb: Path to the reference protein
+        structure in PDB format
+    :param reference_ligand_sdf: Path to the reference ligand structure
+        in SDF format
     :param save_protein: Whether to save the aligned protein structure
     :param save_ligand: Whether to save the aligned ligand structure
-    :param aligned_filename_postfix: Postfix to append to the aligned files
+    :param aligned_filename_postfix: Postfix to append to the aligned
+        files
     :param atom_df_name: Name of the atom dataframe in the PDB file
     """
     # Load protein and ligand structures
@@ -181,14 +186,19 @@ def align_complex_to_protein_only(
     aligned_filename_postfix: str = "_aligned",
     atom_df_name: str = "ATOM",
 ):
-    """Align a predicted protein-ligand structure to a reference protein structure.
+    """Align a predicted protein-ligand structure to a reference protein
+    structure.
 
-    :param predicted_protein_pdb: Path to the predicted protein structure in PDB format
-    :param predicted_ligand_sdf: Optional path to the predicted ligand structure in SDF format
-    :param reference_protein_pdb: Path to the reference protein structure in PDB format
+    :param predicted_protein_pdb: Path to the predicted protein
+        structure in PDB format
+    :param predicted_ligand_sdf: Optional path to the predicted ligand
+        structure in SDF format
+    :param reference_protein_pdb: Path to the reference protein
+        structure in PDB format
     :param save_protein: Whether to save the aligned protein structure
     :param save_ligand: Whether to save the aligned ligand structure
-    :param aligned_filename_postfix: Postfix to append to the aligned files
+    :param aligned_filename_postfix: Postfix to append to the aligned
+        files
     :param atom_df_name: Name of the atom dataframe in the PDB file
     """
     # Load protein and ligand structures
@@ -295,7 +305,8 @@ def align_complex_to_protein_only(
     config_name="complex_alignment.yaml",
 )
 def main(cfg: DictConfig):
-    """Align the predicted protein-ligand structures to the reference protein-ligand structures.
+    """Align the predicted protein-ligand structures to the reference protein-
+    ligand structures.
 
     :param cfg: Configuration dictionary from the hydra YAML file.
     """

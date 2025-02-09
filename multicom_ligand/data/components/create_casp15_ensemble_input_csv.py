@@ -20,8 +20,8 @@ from multicom_ligand.utils.data_utils import (
 
 
 def create_casp15_ensemble_input_csv(args: argparse.Namespace):
-    """Create a CSV file with the protein sequences and ligand SMILES strings for the CASP15
-    dataset.
+    """Create a CSV file with the protein sequences and ligand SMILES strings
+    for the CASP15 dataset.
 
     :param args: The command line arguments.
     """

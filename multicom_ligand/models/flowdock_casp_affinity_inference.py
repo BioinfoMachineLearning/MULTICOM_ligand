@@ -34,8 +34,8 @@ def main(
     skip_existing: bool,
     prediction_cfg: DictConfig,
 ):
-    """Predict binding affinities for CASP ligand L-target experimental protein-ligand
-    structures."""
+    """Predict binding affinities for CASP ligand L-target experimental
+    protein-ligand structures."""
     assert os.path.isdir(input_dir), f"Invalid input directory: {input_dir}"
 
     auxiliary_estimation_csv_filepaths = []

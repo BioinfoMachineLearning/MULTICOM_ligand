@@ -124,12 +124,13 @@ def read_molecule(
 def parse_inference_inputs_from_dir(
     input_data_dir: Union[str, Path], pdb_ids: Optional[Set[Any]] = None
 ) -> List[Tuple[str, str]]:
-    """Parse a data directory containing subdirectories of protein-ligand complexes and return
-    corresponding SMILES strings and PDB IDs.
+    """Parse a data directory containing subdirectories of protein-ligand
+    complexes and return corresponding SMILES strings and PDB IDs.
 
     :param input_data_dir: Path to the input data directory.
     :param pdb_ids: Optional set of IDs by which to filter processing.
-    :return: A list of tuples each containing a SMILES string and a PDB ID.
+    :return: A list of tuples each containing a SMILES string and a PDB
+        ID.
     """
     smiles_and_pdb_id_list = []
     casp_dataset_requested = os.path.basename(input_data_dir) == "targets"
@@ -290,11 +291,13 @@ def renumber_pdb_df_residues(input_pdb_file: str, output_pdb_file: str):
 def renumber_biopython_structure_residues(
     structure: Structure, gap_insertion_point: Optional[str] = None
 ) -> Structure:
-    """Renumber residues in a PDB file using BioPython starting from 1 for each chain.
+    """Renumber residues in a PDB file using BioPython starting from 1 for each
+    chain.
 
     :param structure: BioPython structure object.
-    :param gap_insertion_point: Optional `:`-separated string representing the chain-residue pair
-        index of the residue at which to insert a single index gap.
+    :param gap_insertion_point: Optional `:`-separated string
+        representing the chain-residue pair index of the residue at
+        which to insert a single index gap.
     :return: BioPython structure object with renumbered residues.
     """
     # Iterate through each model in the structure
@@ -334,10 +337,12 @@ def renumber_biopython_structure_residues(
 
 
 def get_pdb_components_with_prody(pdb_id) -> tuple:
-    """Split a protein-ligand pdb into protein and ligand components using ProDy.
+    """Split a protein-ligand pdb into protein and ligand components using
+    ProDy.
 
     :param pdb_id: PDB ID
-    :return: protein structure, nucleic acid structure, and ligand residues
+    :return: protein structure, nucleic acid structure, and ligand
+        residues
     """
     pdb = parsePDB(pdb_id)
     protein = pdb.select("protein")
@@ -351,7 +356,8 @@ def write_pdb_with_prody(macromolecule, pdb_name, add_element_types=False):
 
     :param macromolecule: protein or nucleic acid object from prody
     :param pdb_name: base name for the pdb file
-    :param add_element_types: whether to add element types to the pdb file
+    :param add_element_types: whether to add element types to the pdb
+        file
     """
     writePDB(pdb_name, macromolecule)
     if add_element_types:
@@ -448,14 +454,17 @@ def extract_protein_and_ligands_with_prody(
     add_element_types: bool = False,
     ligand_smiles: Optional[str] = None,
 ) -> Optional[Chem.Mol]:
-    """Using ProDy, extract protein atoms and ligand molecules from a PDB file and write them to
-    separate files.
+    """Using ProDy, extract protein atoms and ligand molecules from a PDB file
+    and write them to separate files.
 
     :param input_pdb_file: The input PDB file.
-    :param protein_output_pdb_file: The output PDB file for the protein atoms.
-    :param ligands_output_sdf_file: The output SDF file for the ligand molecules.
+    :param protein_output_pdb_file: The output PDB file for the protein
+        atoms.
+    :param ligands_output_sdf_file: The output SDF file for the ligand
+        molecules.
     :param sanitize: Whether to sanitize the ligand molecules.
-    :param add_element_types: Whether to add element types to the protein atoms.
+    :param add_element_types: Whether to add element types to the
+        protein atoms.
     :param ligand_smiles: The SMILES string of the ligand molecule.
     :return: The combined final ligand molecule(s) as an RDKit molecule.
     """

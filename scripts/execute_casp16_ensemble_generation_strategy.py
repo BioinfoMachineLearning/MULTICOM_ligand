@@ -16,11 +16,13 @@ NATIVE_MULTI_LIGAND_METHODS = {"neuralplexer", "rfaa"}
 
 
 def count_num_pb_valid_criteria(ligand_filepath: str, protein_filepath: str) -> int:
-    """Count the number of PB-valid criteria met by the given protein-ligand complex.
+    """Count the number of PB-valid criteria met by the given protein-ligand
+    complex.
 
     :param ligand_filepath: The filepath to the ligand SDF file.
     :param protein_filepath: The filepath to the protein PDB file.
-    :return: The number of PB-valid criteria met by the given protein-ligand complex.
+    :return: The number of PB-valid criteria met by the given protein-
+        ligand complex.
     """
     buster = PoseBusters(config="dock", top_n=None)
     bust_results = buster.bust(
@@ -56,18 +58,22 @@ def is_close_to_original_ligand_structure(
     closeness_threshold: float,
     verbose: bool = True,
 ) -> bool:
-    """Check if the modified ligand prediction is close to the original ligand's structure.
+    """Check if the modified ligand prediction is close to the original
+    ligand's structure.
 
-    :param modified_ligand_filepath: The filepath to the modified ligand SDF file.
-    :param original_ligand_filepath: The filepath to the original ligand SDF file.
-    :param closeness_threshold: The (fragment-averaged) threshold distance (in Angstroms) under
-        which to consider a modified (relaxed) ligand prediction close to its original (unrelaxed)
+    :param modified_ligand_filepath: The filepath to the modified ligand
+        SDF file.
+    :param original_ligand_filepath: The filepath to the original ligand
+        SDF file.
+    :param closeness_threshold: The (fragment-averaged) threshold
+        distance (in Angstroms) under which to consider a modified
+        (relaxed) ligand prediction close to its original (unrelaxed)
         ligand structure counterpart.
-    :param verbose: Whether to print the average RMSD between the modified and original ligand
-        structures if the modified ligand prediction is not close to the original ligand's
-        structure.
-    :return: True if the modified ligand prediction is close to the original ligand's structure,
-        False otherwise.
+    :param verbose: Whether to print the average RMSD between the
+        modified and original ligand structures if the modified ligand
+        prediction is not close to the original ligand's structure.
+    :return: True if the modified ligand prediction is close to the
+        original ligand's structure, False otherwise.
     """
     modified_mol = Chem.MolFromMolFile(modified_ligand_filepath, sanitize=False)
     original_mol = Chem.MolFromMolFile(original_ligand_filepath, sanitize=False)
@@ -104,11 +110,12 @@ def is_close_to_original_ligand_structure(
 
 
 def execute_step_3(prediction_dir: str):
-    """Copy all subdirectories in the given directory that do not end with "_relaxed" to a new
-    directory with the suffix "_unrelaxed" added to the original name.
+    """Copy all subdirectories in the given directory that do not end with
+    "_relaxed" to a new directory with the suffix "_unrelaxed" added to the
+    original name.
 
-    :param prediction_dir: The directory containing the ensemble predictions for which to copy
-        unrelaxed versions.
+    :param prediction_dir: The directory containing the ensemble
+        predictions for which to copy unrelaxed versions.
     """
     # List all (unrelaxed) subdirectories to copy in the given directory
     unrelaxed_subdirs_to_copy = [
@@ -132,7 +139,8 @@ def execute_step_3(prediction_dir: str):
 def execute_step_4(
     prediction_dir: str, closeness_threshold: float, dry_run: bool, verbose: bool = False
 ):
-    """Apply a two-stage heuristic to further rank the top-5 (consensus) complexes.
+    """Apply a two-stage heuristic to further rank the top-5 (consensus)
+    complexes.
 
     1. If a top-n complex is already PB-valid, keep its top-n ranking as is.
     2. If a top-n complex is not PB-valid, check if its relaxed version is PB-valid or if it passes more of the PB-valid criteria than the unrelaxed version.
@@ -277,7 +285,8 @@ def execute_step_4(
 
 
 def execute_steps(prediction_dir: str, closeness_threshold: float, dry_run: bool, verbose: bool):
-    """Execute steps 3-4 of the CASP16 ensemble generation strategy, as described in detail below.
+    """Execute steps 3-4 of the CASP16 ensemble generation strategy, as
+    described in detail below.
 
     CASP16 ensemble (consensus) ranking strategy:
     1. Generate 100 ligand conformations with DiffDock-L, 40 with DynamicBind and NeuralPLexer each, and 1 with RFAA.

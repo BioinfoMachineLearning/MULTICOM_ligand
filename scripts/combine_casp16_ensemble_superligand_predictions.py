@@ -10,12 +10,14 @@ from tqdm import tqdm
 
 
 def combine_superligand_predictions(prediction_dir: str, output_dir: str):
-    """Execute step 7 of the CASP16 ensemble generation strategy, as described in detail within
-    `scripts/execute_casp16_ensemble_generation_strategy.py`.
+    """Execute step 7 of the CASP16 ensemble generation strategy, as described
+    in detail within `scripts/execute_casp16_ensemble_generation_strategy.py`.
 
-    :param prediction_dir: The directory containing the ensemble predictions for which to execute
-        step 7 of the CASP16 ensemble generation strategy.
-    :param output_dir: The directory to which to write the combined superligand predictions.
+    :param prediction_dir: The directory containing the ensemble
+        predictions for which to execute step 7 of the CASP16 ensemble
+        generation strategy.
+    :param output_dir: The directory to which to write the combined
+        superligand predictions.
     """
     assert os.path.exists(
         prediction_dir

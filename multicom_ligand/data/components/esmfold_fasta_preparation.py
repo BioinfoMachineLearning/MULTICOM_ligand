@@ -42,8 +42,9 @@ logger = logging.getLogger(__name__)
     config_name="esmfold_fasta_preparation.yaml",
 )
 def main(cfg: DictConfig):
-    """Derive the FASTA files for all protein sequences in either the PoseBusters Benchmark or
-    Astex Diverse sets, in preparation for computing ESM2 sequence embeddings in batch.
+    """Derive the FASTA files for all protein sequences in either the
+    PoseBusters Benchmark or Astex Diverse sets, in preparation for computing
+    ESM2 sequence embeddings in batch.
 
     Args: An OmegaConf `DictConfig`.
     """

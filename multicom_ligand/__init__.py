@@ -61,7 +61,8 @@ def resolve_method_protein_dir(
     :param method: The method name.
     :param dataset: The dataset name.
     :param repeat_index: The repeat index for the method.
-    :param pocket_only_baseline: Whether to return protein files for a pocket-only baseline.
+    :param pocket_only_baseline: Whether to return protein files for a
+        pocket-only baseline.
     :return: The protein directory for the given method.
     """
     pocket_postfix = "_bs_cropped" if pocket_only_baseline else ""
@@ -112,7 +113,8 @@ def resolve_method_ligand_dir(
 
     :param method: The method name.
     :param dataset: The dataset name.
-    :param vina_binding_site_method: The binding site method used for Vina.
+    :param vina_binding_site_method: The binding site method used for
+        Vina.
     :param repeat_index: The repeat index for the method.
     :return: The ligand directory for the given method.
     """
@@ -154,8 +156,10 @@ def resolve_method_output_dir(
 
     :param method: The method name.
     :param dataset: The dataset name.
-    :param vina_binding_site_method: The binding site method used for Vina.
-    :param ensemble_ranking_method: The ranking method used for the ensemble method.
+    :param vina_binding_site_method: The binding site method used for
+        Vina.
+    :param ensemble_ranking_method: The ranking method used for the
+        ensemble method.
     :param repeat_index: The repeat index for the method.
     :return: The output directory for the given method.
     """

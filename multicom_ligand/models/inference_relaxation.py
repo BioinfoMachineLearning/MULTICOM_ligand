@@ -235,7 +235,8 @@ def relax_single_filepair(
     temp_directory: Path,
     cfg: DictConfig,
 ):
-    """Relax a single protein-ligand file pair using the specified configuration.
+    """Relax a single protein-ligand file pair using the specified
+    configuration.
 
     :param protein_filepath: The protein file `Path`.
     :param ligand_filepath: The ligand file `Path`.
@@ -371,7 +372,8 @@ def relax_single_filepair(
     config_name="inference_relaxation.yaml",
 )
 def main(cfg: DictConfig):
-    """Run the relaxation inference process using the specified configuration."""
+    """Run the relaxation inference process using the specified
+    configuration."""
     logger.setLevel(cfg.log_level)
 
     protein_file_dir = Path(cfg.protein_dir)

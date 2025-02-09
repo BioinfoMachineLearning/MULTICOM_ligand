@@ -13,8 +13,8 @@ rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True)
 
 
 def create_casp16_superligand_ensemble_input_csv(args: argparse.Namespace):
-    """Create a CSV file with the predicted protein filepaths and ligand SMILES strings for the
-    superligand CASP16 targets.
+    """Create a CSV file with the predicted protein filepaths and ligand SMILES
+    strings for the superligand CASP16 targets.
 
     :param args: The command line arguments.
     """

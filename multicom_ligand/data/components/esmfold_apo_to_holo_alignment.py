@@ -258,8 +258,8 @@ def align_prediction(
     dataset_ligand_coords: Optional[np.ndarray],
     return_rotation: bool = False,
 ) -> Union[Tuple[Rotation, np.ndarray, np.ndarray], float]:
-    """Perform an alignment of apo and holo protein structures and ligand coordinates using an
-    optimized smoothing factor.
+    """Perform an alignment of apo and holo protein structures and ligand
+    coordinates using an optimized smoothing factor.
 
     :param smoothing_factor: Smoothing factor controlling the alignment.
     :param dataset_calpha_coords: Array of Ca atom coordinates for a dataset's protein structure.
@@ -311,20 +311,25 @@ def get_alignment_rotation(
     esmfold_protein_path: str,
     dataset_path: str,
 ) -> Tuple[Optional[Rotation], Optional[np.ndarray], Optional[np.ndarray]]:
-    """Calculate the alignment rotation between apo and holo protein structures and their ligand
-    coordinates.
+    """Calculate the alignment rotation between apo and holo protein structures
+    and their ligand coordinates.
 
     :param pdb_id: PDB ID of the protein-ligand complex.
-    :param dataset_protein_path: Filepath to the PDB file of the protein structure from a dataset.
-    :param esmfold_protein_path: Filepath to the PDB file of the protein structure from ESMFold.
+    :param dataset_protein_path: Filepath to the PDB file of the protein
+        structure from a dataset.
+    :param esmfold_protein_path: Filepath to the PDB file of the protein
+        structure from ESMFold.
     :param dataset: Name of the dataset.
-    :param dataset_path: Filepath to the PDB file containing ligand coordinates.
+    :param dataset_path: Filepath to the PDB file containing ligand
+        coordinates.
     :param lig_connection_radius: Radius for connecting ligand atoms.
-    :param exclude_af2aa_excluded_ligs: Whether to exclude ligands excluded from the AF2-AA
-        dataset.
-    :param skip_parsed_ligands: Whether to skip parsing ligands if they have already been parsed.
-    :return: A tuple containing rotation matrix (Optional[Rotation]), centroid of Ca atoms for a
-        dataset protein (Optional[np.ndarray]), and centroid of Ca atoms for ESMFold
+    :param exclude_af2aa_excluded_ligs: Whether to exclude ligands
+        excluded from the AF2-AA dataset.
+    :param skip_parsed_ligands: Whether to skip parsing ligands if they
+        have already been parsed.
+    :return: A tuple containing rotation matrix (Optional[Rotation]),
+        centroid of Ca atoms for a dataset protein
+        (Optional[np.ndarray]), and centroid of Ca atoms for ESMFold
         (Optional[np.ndarray]).
     """
     try:
@@ -404,7 +409,8 @@ def align_apo_structure_to_holo_structure(
 
     :param cfg: Hydra config for the alignment.
     :param filename: Filename of the ESMFold apo structure.
-    :param atom_df_name: Name of the atom DataFrame derived from the corresponding PDB file input.
+    :param atom_df_name: Name of the atom DataFrame derived from the
+        corresponding PDB file input.
     """
     pdb_id = "_".join(Path(filename).stem.split("_")[:2])
     esm_protein_filename = os.path.join(cfg.esmfold_structures_dir, f"{pdb_id}.pdb")

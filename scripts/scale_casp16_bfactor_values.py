@@ -5,7 +5,8 @@ from tqdm import tqdm
 
 
 def scale_bfactor_values(filepath: str):
-    """Scale B-factor values in a CASP16 prediction file to the range of [0.0, 100.0]."""
+    """Scale B-factor values in a CASP16 prediction file to the range of [0.0,
+    100.0]."""
     with open(filepath) as file:
         lines = file.readlines()
 
@@ -45,7 +46,8 @@ def scale_bfactor_values(filepath: str):
 
 
 def scale_casp16_bfactor_values_in_file_directory(directory: str):
-    """Scale B-factor values in all CASP16 prediction files within a given directory."""
+    """Scale B-factor values in all CASP16 prediction files within a given
+    directory."""
     for root, _, files in os.walk(directory):
         for file in tqdm(files, desc="Scaling B-factor values in CASP16 prediction files"):
             _, ext = os.path.splitext(file)
