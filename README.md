@@ -763,7 +763,7 @@ python3 multicom_ligand/analysis/inference_analysis_casp.py method=tulip dataset
 
 <details>
 
-Using an `ensemble` of methods, generate predictions for a new protein target using each method and (e.g., consensus-)rank the pool of predictions
+Using an `ensemble` of methods, generate predictions for a new protein target using each method and (e.g., consensus-)rank the pool of predictions (n.b., see the function `execute_steps` within `scripts/execute_casp16_ensemble_generation_strategy.py` for more details regarding MULTICOM_ligand's usage during CASP16)
 
 ```bash
 # generate each method's prediction script for a target
