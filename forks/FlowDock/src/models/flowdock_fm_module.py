@@ -745,6 +745,12 @@ class FlowDockFMLitModule(LightningModule):
         sample_id = batch["sample_id"][0] if "sample_id" in batch else "sample"
         input_template = batch["input_template"][0] if "input_template" in batch else None
 
+        out_path = (
+             os.path.join(self.hparams.cfg.out_path, sample_id)
+             if "sample_id" in batch
+             else self.hparams.cfg.out_path
+         )
+
         # generate ESM embeddings for the protein
         protein = pdb_filepath_to_protein(rec_path)
         sequences = [
@@ -795,7 +801,7 @@ class FlowDockFMLitModule(LightningModule):
             ligand_paths,
             self.hparams.cfg,
             self,
-            self.hparams.cfg.out_path,
+            out_path,
             separate_pdb=self.hparams.cfg.separate_pdb,
             apo_receptor_path=apo_rec_path,
             sample_id=sample_id,
@@ -844,6 +850,7 @@ class FlowDockFMLitModule(LightningModule):
                         prot_lig_pairs,
                         os.path.join(
                             self.hparams.cfg.out_path,
+                            outputs["name"][batch_index],
                             "predict_epoch_outputs",
                             f"{outputs['name'][batch_index]}{f'_rank{ranking + 1}' if ranking is not None else ''}_predict_epoch_{self.current_epoch}_global_step_{self.global_step}_output_{i}_batch_{batch_index}.pdb",
                         ),
