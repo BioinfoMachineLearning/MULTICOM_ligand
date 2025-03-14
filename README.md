@@ -76,6 +76,10 @@ conda activate MULTICOM_ligand  # NOTE: one still needs to use `conda` to (de)ac
 pip3 install -e .
 pip3 install numpy==1.26.4 --no-dependencies
 pip3 install prody==2.4.1 --no-dependencies
+# - PyMOL environment # (~1 GB)
+mamba env create -f environments/pymol_environment.yaml
+conda activate PyMOL-PoseBench
+pip install -e . --no-deps
 # - casp15_ligand_scoring environment (~3 GB)
 mamba env create -f environments/casp15_ligand_scoring_environment.yaml
 conda activate casp15_ligand_scoring  # NOTE: one still needs to use `conda` to (de)activate environments
