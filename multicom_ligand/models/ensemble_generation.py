@@ -1025,6 +1025,7 @@ def get_method_predictions(
                 if "rank" in os.path.basename(file)
                 and "relaxed" not in os.path.basename(file)
                 and "aligned" not in os.path.basename(file)
+                and "predict_epoch" not in os.path.basename(file)
             ],
             key=rank_key,
         )[: cfg.method_top_n_to_select]
