@@ -295,7 +295,7 @@ if __name__ == "__main__":
         "--predictions_path",
         type=str,
         help="Path to the directory containing FlowDock's CASP16 prediction files.",
-        default=os.path.join("forks", "FlowDock", "inference", "casp16_predictions"),
+        default=os.path.join("forks", "FlowDock", "inference", "flowdock_ensemble_outputs"),
     )
     parser.add_argument(
         "--references_path",
@@ -325,9 +325,13 @@ if __name__ == "__main__":
             predicted_ligands = [
                 f
                 for f in glob.glob(
-                    os.path.join(args.predictions_path, superligand_target, "lig_rank1*.sdf")
+                    os.path.join(
+                        args.predictions_path,
+                        superligand_target,
+                        "lig_rank1_*_ensemble_relaxed.sdf",
+                    )
                 )
-                if not f.endswith("_aligned.sdf")
+                if "_aligned" not in f
             ]
 
             assert (
@@ -352,7 +356,7 @@ if __name__ == "__main__":
             ), f"Reference ligand not found: {reference_ligand}"
 
             # Check if aligned files already exist
-            if os.path.exists(predicted_protein.replace(".pdb", "_aligned.pdb")):
+            if os.path.exists(predicted_ligand.replace(".sdf", "_aligned.sdf")):
                 logger.info(f"Aligned files already exist for {superligand_target}, skipping...")
             else:
                 # Save the aligned structures
@@ -397,6 +401,8 @@ if __name__ == "__main__":
 
     # Concatenate all results and save to CSV
     bust_results_df = pd.concat(bust_results_list, ignore_index=True)
-    bust_results_filepath = os.path.join(args.predictions_path, "casp16_flowdock_bust_results.csv")
+    bust_results_filepath = os.path.join(
+        args.predictions_path, "casp16_flowdock_bust_results_relaxed.csv"
+    )
     bust_results_df.to_csv(bust_results_filepath, index=False)
     logger.info(f"PoseBusters results for all CASP16 targets saved to {bust_results_filepath}")
